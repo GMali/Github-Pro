@@ -1,0 +1,10 @@
+#extension_pr_assignees {
+    position: fixed;
+    list-style: none;
+    padding: 30px;
+    line-height: 30px;
+    border: 1px solid gray;
+    border-radius: 10px;
+    top: 100px;
+    right: 100px;
+}
