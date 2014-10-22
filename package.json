@@ -1,6 +1,9 @@
 {
   "name": "github-pro",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "A chrome extension for Pro Github users",
+  "author": "Gaurav Mali <dev@gauravmali.com>",
+  "license" : "MIT",
   "dependencies": {},
   "devDependencies": {
     "grunt": "~0.4.1",
