@@ -24,6 +24,8 @@
             ],
             "js": [
                 "scripts/vendor/jquery.js",
+                "scripts/lib/pr_assignee.js",
+                "scripts/lib/diff_folding.js",
                 "scripts/contentscript.js"
             ],
             "run_at": "document_end",
