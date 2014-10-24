@@ -1,12 +1,9 @@
 'use strict';
 /*global prAssignees:false, diffFolding:false */
 
-// https://github.com/SemanticSugar/adroll/pulls?*
-if (window.location.pathname === '/SemanticSugar/adroll/pulls') {
+// Run the features when the current active tab has finished updating
+chrome.runtime.onMessage.addListener( function(message, sender, sendResponse) {
     prAssignees();
-}
-
-// https://github.com/SemanticSugar/adroll/pull/*
-if (window.location.pathname.indexOf('/SemanticSugar/adroll/pull/') >= 0) {
     diffFolding();
-}
+    sendResponse(message.msg);
+});

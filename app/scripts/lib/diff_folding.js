@@ -3,6 +3,8 @@
 /*jshint unused:false */
 
 var diffFolding = function diffFolding() {
+    $('.github-pro-diff-fold').remove();
+
     var $files = $('.file');
 
     $files.each(function() {

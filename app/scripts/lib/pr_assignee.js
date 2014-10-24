@@ -4,25 +4,30 @@
 
 var prAssignees = function prAssignees() {
     var assignees = {};
+    $('#extension_pr_assignees').remove();
 
-    $('.table-list-cell-avatar a').each(function() {
-        var label = $(this).attr('aria-label');
-        var assignee = label.replace('View everything assigned to ', '');
-        if (assignees[assignee]) {
-            assignees[assignee]++;
-        } else {
-            assignees[assignee] = 1;
+    var $avatars = $('.table-list-cell-avatar a');
+
+    if ( $avatars.length > 0 ) {
+        $('.table-list-cell-avatar a').each(function() {
+            var label = $(this).attr('aria-label');
+            var assignee = label.replace('View everything assigned to ', '');
+            if (assignees[assignee]) {
+                assignees[assignee]++;
+            } else {
+                assignees[assignee] = 1;
+            }
+        });
+
+        var assigneeList = '<ul id="extension_pr_assignees">';
+
+        for (var user in assignees) {
+            var li = '<li>' + user + ': ' + assignees[user] + '</li>';
+            assigneeList += li;
         }
-    });
 
-    var assigneeList = '<ul id="extension_pr_assignees">';
+        assigneeList += '</ul>';
 
-    for (var user in assignees) {
-        var li = '<li>' + user + ': ' + assignees[user] + '</li>';
-        assigneeList += li;
+        $('.site').append(assigneeList);
     }
-
-    assigneeList += '</ul>';
-
-    $('.site').append(assigneeList);
 };
