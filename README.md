@@ -40,3 +40,5 @@ grunt build
 ## Contribution
 
 Create an issue, PR, or Wiki pages. Standard Github stuff.
+
+Also checkout the [Wiki page](https://github.com/GMali/Github-Pro/wiki) for additional docs.
