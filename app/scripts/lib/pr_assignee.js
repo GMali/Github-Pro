@@ -3,31 +3,29 @@
 /*jshint unused:false */
 
 var prAssignees = function prAssignees() {
-    var assignees = {};
-    $('#extension_pr_assignees').remove();
+    var assignees         = {},
+        $avatars          = $('.table-list-cell-avatar a'),
+        $container        = $('<ul>').addClass('github-pro-pr-assignees'),
+        containerSelector = '.github-pro-pr-assignees';
 
-    var $avatars = $('.table-list-cell-avatar a');
+    // Remove the existing container
+    $(containerSelector).remove();
 
+    // We only want to show the container if assignees exist on the page
     if ( $avatars.length > 0 ) {
-        $('.table-list-cell-avatar a').each(function() {
+
+        // Collect assignee data from DOM
+        $avatars.each(function() {
             var label = $(this).attr('aria-label');
-            var assignee = label.replace('View everything assigned to ', '');
-            if (assignees[assignee]) {
-                assignees[assignee]++;
-            } else {
-                assignees[assignee] = 1;
-            }
+            var assigneeName = label.replace('View everything assigned to ', '');
+            assignees[assigneeName] = (assignees[assigneeName] || 0) + 1;
         });
 
-        var assigneeList = '<ul id="extension_pr_assignees">';
-
+        // Create the container
         for (var user in assignees) {
-            var li = '<li>' + user + ': ' + assignees[user] + '</li>';
-            assigneeList += li;
+            $container.prepend('<li>' + user + ': ' + assignees[user] + '</li>');
         }
 
-        assigneeList += '</ul>';
-
-        $('.site').append(assigneeList);
+        $('.site').append($container);
     }
 };
