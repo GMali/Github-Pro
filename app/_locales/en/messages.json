@@ -1,7 +1,7 @@
 {
   "appName": {
     "message": "Github Pro",
-    "description": "The name of the application"
+    "description": "Improved interface for Github.com"
   },
   "appDescription": {
     "message": "Make Github more fun!",
