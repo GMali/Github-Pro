@@ -3,24 +3,23 @@
 /*jshint unused:false */
 
 var diffFolding = function diffFolding() {
-    $('.github-pro-diff-fold').remove();
+    var buttonSelector      = '.github-pro-diff-fold',
+        fileContentSelector = '.blob-wrapper',
+        fileActionsSelector = '.file .meta .actions',
+        buttonTemplate      = '<a class="minibutton github-pro-diff-fold">Fold</a>';
 
-    var $files = $('.file');
+    // Remove the buttons
+    $(buttonSelector).remove();
 
-    $files.each(function() {
-        var $actions = $(this).find('.meta .actions');
-        $actions.prepend('<a class="minibutton github-pro-diff-fold">Fold</a>');
+    // Add a button to each file's action section
+    $(fileActionsSelector).each(function() {
+        $(this).prepend(buttonTemplate);
     });
 
-    $('.github-pro-diff-fold').click(function(event) {
-        event.preventDefault();
-        var $foldButton = $(event.currentTarget);
-        $foldButton.parent().parent().parent().find('.blob-wrapper').slideToggle(function() {
-            if ($foldButton.text() === 'Fold') {
-                $foldButton.text('Unfold');
-            } else {
-                $foldButton.text('Fold');
-            }
-        });
+    // Listener for the buttons
+    $(buttonSelector).click(function(event) {
+        var $this = $(this);
+        $this.parents().find(fileContentSelector).toggle();
+        $this.text($this.text() === 'Fold' ? 'Unfold': 'Fold');
     });
 };
