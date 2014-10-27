@@ -19,7 +19,7 @@ var fileFolding = function diffFolding() {
     // Listener for the buttons
     $(buttonSelector).click(function(event) {
         var $this = $(this);
-        $this.parents().find(fileContentSelector).toggle();
+        $this.parent().parent().parent().find(fileContentSelector).toggle();
         $this.text($this.text() === 'Fold' ? 'Unfold': 'Fold');
     });
 };
