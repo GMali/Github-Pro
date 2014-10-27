@@ -2,11 +2,11 @@
 /*global $:false */
 /*jshint unused:false */
 
-var diffFolding = function diffFolding() {
-    var buttonSelector      = '.github-pro-diff-fold',
+var fileFolding = function diffFolding() {
+    var buttonSelector      = '.github-pro-file-fold',
         fileContentSelector = '.blob-wrapper',
         fileActionsSelector = '.file .meta .actions',
-        buttonTemplate      = '<a class="minibutton github-pro-diff-fold">Fold</a>';
+        buttonTemplate      = '<a class="minibutton github-pro-file-fold">Fold</a>';
 
     // Remove the buttons
     $(buttonSelector).remove();

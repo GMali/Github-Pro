@@ -1,9 +1,9 @@
 'use strict';
-/*global prAssignees:false, diffFolding:false */
+/*global prAssignees:false, fileFolding:false */
 
 // Run the features when the current active tab has finished updating
 chrome.runtime.onMessage.addListener( function(message, sender, sendResponse) {
     prAssignees();
-    diffFolding();
+    fileFolding();
     sendResponse(message.msg);
 });
