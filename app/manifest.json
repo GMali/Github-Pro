@@ -25,7 +25,7 @@
             ],
             "js": [
                 "scripts/vendor/jquery.js",
-                "scripts/lib/pr_assignee.js",
+                "scripts/lib/assignee_count.js",
                 "scripts/lib/file_folding.js",
                 "scripts/contentscript.js"
             ],
