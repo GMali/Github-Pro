@@ -2,7 +2,7 @@
 /*global $:false */
 /*jshint unused:false */
 
-var fileFolding = function diffFolding() {
+function diffFolding() {
     var buttonSelector      = '.github-pro-file-fold',
         fileContentSelector = '.blob-wrapper',
         fileActionsSelector = '.file .meta .actions',
@@ -22,4 +22,4 @@ var fileFolding = function diffFolding() {
         $this.parent().parent().parent().find(fileContentSelector).toggle();
         $this.text($this.text() === 'Fold' ? 'Unfold': 'Fold');
     });
-};
+}

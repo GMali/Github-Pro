@@ -1,17 +1,6 @@
 'use strict';
 /*global $:false */
-/*jshint unused:false */
-
-/**
- * Sorts an object by it's value
- * @param  {Object} assignees key: String, value: Number
- * @return {Array}            sorted object values. [ ["name", count], ... ]
- */
-function sortAssignees(assignees) {
-    return Object.keys(assignees)
-            .map(function (user) { return [user, assignees[user]]; })
-            .sort(function (user1, user2) { return user1[1] - user2[1]; });
-}
+/*jshint unused:false, latedef:nofunc */
 
 /**
  * The feature method
@@ -19,7 +8,7 @@ function sortAssignees(assignees) {
  * descending order. Helpful when you want to get your PRs looked at, but
  * assigning them to busy folks might not get it seen soon enough.
  */
-var assigneeCount = function assigneeCount() {
+function assigneeCount() {
     var assignees         = {},
         sortedAssignees   = [],
         $avatars          = $('.table-list-cell-avatar a img'),
@@ -52,4 +41,15 @@ var assigneeCount = function assigneeCount() {
         // Render!
         $('#js-issues-toolbar').before($container);
     }
-};
+}
+
+/**
+ * Sorts an object by it's value
+ * @param  {Object} assignees key: String, value: Number
+ * @return {Array}            sorted object values. [ ["name", count], ... ]
+ */
+function sortAssignees(assignees) {
+    return Object.keys(assignees)
+            .map(function (user) { return [user, assignees[user]]; })
+            .sort(function (user1, user2) { return user1[1] - user2[1]; });
+}
