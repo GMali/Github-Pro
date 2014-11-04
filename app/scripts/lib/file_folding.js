@@ -2,7 +2,7 @@
 /*global $:false */
 /*jshint unused:false */
 
-function diffFolding() {
+function fileFolding() {
     var buttonSelector      = '.github-pro-file-fold',
         fileContentSelector = '.blob-wrapper',
         fileActionsSelector = '.file .meta .actions',
