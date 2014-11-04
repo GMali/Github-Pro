@@ -1,6 +1,6 @@
 .github-pro-assignee-count {
     padding: 7px 0 20px 0;
-    overflow-x: scroll;
+    overflow-x: overlay;
     overflow-y: hidden;
     white-space: nowrap;
 }
