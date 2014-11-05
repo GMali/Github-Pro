@@ -1,10 +1,11 @@
 .github-pro-assignee-count {
-    padding: 7px 0 20px 0;
+    padding: 10px 0 15px 0;
+    margin-bottom: -5px;
     overflow-x: overlay;
     overflow-y: hidden;
     white-space: nowrap;
 }
 
-.github-pro-assignee-count span.subnav-item {
+.github-pro-assignee-count a.subnav-item {
     float: none;
 }
