@@ -6,7 +6,7 @@ function fileFolding() {
     var buttonSelector      = '.github-pro-file-fold',
         fileContentSelector = '.blob-wrapper',
         fileActionsSelector = '.file-actions',
-        buttonTemplate      = '<a class="minibutton github-pro-file-fold">Fold</a>';
+        buttonTemplate      = '<a class="btn btn-sm github-pro-file-fold">Fold</a>';
 
     // Remove the buttons
     $(buttonSelector).remove();
