@@ -62,16 +62,8 @@ function assigneeCount() {
  * @return {Object}              updated value of the hashmap
  */
 function _incrementAssignee (username, userFullName, assignee) {
-    if (assignee) {
-        assignee.count++;
-    } else {
-        assignee = {
-            count    : 1,
-            fullName : userFullName,
-            username : username
-        };
-    }
-
+    assignee = assignee || { count : 0, fullName : userFullName, username : username };
+    assignee.count++;
     return assignee;
 }
 
@@ -93,41 +85,14 @@ function _sortAssignees (assignees) {
  * @return {jQuery Object}           the object that needs to get rendered
  */
 function _createBadge (assignee) {
-    var href = _createHref(assignee[1].username);
+    var url = window.location;
+    var assigneeLink = url.origin + url.pathname + '/assigned/' + assignee[1].username;
+    var assigneeIndex = url.href.indexOf('/assigned');
+    var href = ~assigneeIndex ? url.href.slice(0, assigneeIndex) : assigneeLink;
 
-    var $badge = $('<a>')
+    return $('<a>')
         .addClass('subnav-item')
         .attr('href', href)
         .attr('data-github-pro-username', assignee[0])
         .html(assignee[1].fullName + ': ' + assignee[1].count);
-
-    return $badge;
-}
-
-/**
- * Creates a href for a user based on the queries in the current URL
- * This will allow user to toggle the assignee filters for PRs
- * @param  {String} username the unique Github username of a user
- * @return {String}          the final URL in string format. Usable as a href
- */
-function _createHref (username) {
-    var prLink             = new URL(window.location.href),
-        userQuery          = '+assignee%3A' + username,
-        defaultQuery       = '?q=is%3Apr+is%3Aopen',
-        redirectedPathname = '/assigned/';
-
-    if (prLink.search === '') {
-        // Github somtimes redirects to ../pulls/assigned/[username]
-        var queryPosition = prLink.pathname.indexOf(redirectedPathname);
-        prLink.pathname = prLink.pathname.slice(0, queryPosition);
-        prLink.search = defaultQuery;
-
-    } else if (prLink.search.indexOf(userQuery) === -1) {
-        prLink.search += userQuery;
-
-    } else {
-        prLink.search = prLink.search.replace(userQuery, '');
-    }
-
-    return prLink.toString();
 }
