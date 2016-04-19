@@ -88,7 +88,7 @@ function _createBadge (assignee) {
     var url = window.location;
     var assigneeLink = url.origin + url.pathname + '/assigned/' + assignee[1].username;
     var assigneeIndex = url.href.indexOf('/assigned');
-    var href = ~assigneeIndex ? url.href.slice(0, assigneeIndex) : assigneeLink;
+    var href = assigneeIndex >= 0 ? url.href.slice(0, assigneeIndex) : assigneeLink;
 
     return $('<a>')
         .addClass('subnav-item')
