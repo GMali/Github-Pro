@@ -4,7 +4,7 @@
 
 function fileFolding() {
     var buttonSelector      = '.github-pro-file-fold',
-        fileContentSelector = '.blob-wrapper',
+        fileContentSelector = '.blob-wrapper, .render-wrapper',
         fileActionsSelector = '.file-actions',
         buttonTemplate      = '<a class="btn btn-sm github-pro-file-fold">Fold</a>';
 
