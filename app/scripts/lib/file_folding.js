@@ -5,15 +5,15 @@
 function fileFolding() {
     var buttonSelector      = '.github-pro-file-fold',
         fileContentSelector = '.blob-wrapper, .render-wrapper',
-        fileActionsSelector = '.file-actions',
+        fileEditSelector = '.file-actions [aria-label="View the whole file"]',
         buttonTemplate      = '<a class="btn btn-sm github-pro-file-fold">Fold</a>';
 
     // Remove the buttons
     $(buttonSelector).remove();
 
     // Add a button to each file's action section
-    $(fileActionsSelector).each(function() {
-        $(this).prepend(buttonTemplate);
+    $(fileEditSelector).each(function() {
+        $(this).before(buttonTemplate);
     });
 
     // Listener for the buttons
