@@ -11,7 +11,7 @@
 function assigneeCount() {
     var assignees         = {},
         sortedAssignees   = [],
-        $avatars          = $('.table-list-cell-avatar a'),
+        $avatars          = $('.table-list-cell-avatar-stack a'),
         // Features might have this pattern, so writing it this way to make it
         // easier to refactor later
         containerClass    = 'github-pro-assignee-count',
