@@ -28,6 +28,7 @@
                 "scripts/vendor/jquery.js",
                 "scripts/lib/assignee_count.js",
                 "scripts/lib/file_folding.js",
+                "scripts/lib/toggle_notes.js",
                 "scripts/contentscript.js"
             ],
             "run_at": "document_end",
