@@ -1,6 +1,5 @@
 'use strict';
 /*global $:false */
-/*jshint unused:false */
 
 function toggleNotes() {
     var toggleButtonSelector = '.js-toggle-all-notes';

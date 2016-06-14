@@ -1,6 +1,5 @@
 'use strict';
 /*global $:false */
-/*jshint unused:false */
 
 function fileFolding() {
     var buttonSelector      = '.github-pro-file-fold',

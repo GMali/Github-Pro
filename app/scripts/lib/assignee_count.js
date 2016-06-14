@@ -1,6 +1,5 @@
 'use strict';
 /*global $:false */
-/*jshint unused:false, latedef:nofunc */
 
 /**
  * The feature method
