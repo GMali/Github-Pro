@@ -2,10 +2,11 @@
 /*global $:false */
 
 function fileFolding() {
-    var buttonSelector      = '.github-pro-file-fold',
-        fileContentSelector = '.blob-wrapper, .render-wrapper',
-        fileEditSelector = '.file-actions [aria-label="View the whole file"]',
-        buttonTemplate      = '<a class="btn btn-sm github-pro-file-fold">Fold</a>';
+    var buttonSelector       = '.github-pro-file-fold',
+        buttonParentSelector = '.file',
+        fileContentSelector  = '.blob-wrapper, .render-wrapper',
+        fileEditSelector     = '.file-actions [aria-label^="View the whole file"]',
+        buttonTemplate       = '<a class="btn btn-sm github-pro-file-fold">Fold</a>';
 
     // Remove the buttons
     $(buttonSelector).remove();
@@ -18,7 +19,7 @@ function fileFolding() {
     // Listener for the buttons
     $(buttonSelector).click(function(event) {
         var $this = $(this);
-        $this.parent().parent().parent().find(fileContentSelector).toggle();
+        $this.parents(buttonParentSelector).find(fileContentSelector).toggle();
         $this.text($this.text() === 'Fold' ? 'Unfold': 'Fold');
     });
 }
