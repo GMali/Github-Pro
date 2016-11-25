@@ -5,7 +5,7 @@ function fileFolding() {
     var buttonSelector       = '.github-pro-file-fold',
         buttonParentSelector = '.file',
         fileContentSelector  = '.blob-wrapper, .render-wrapper',
-        fileEditSelector     = '.file-actions [aria-label="View the whole file"]',
+        fileEditSelector     = '.file-actions [aria-label^="View the whole file"]',
         buttonTemplate       = '<a class="btn btn-sm github-pro-file-fold">Fold</a>';
 
     // Remove the buttons
